@@ -51,6 +51,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE :=
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
+# Symbolic Simlinks
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist
+    	
 # Kernel
 BOARD_KERNEL_CMDLINE := \
 	console=ttyMSM0,115200,n8 \
