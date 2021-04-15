@@ -24,29 +24,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# A/B
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    system \
-    vendor \
-    vbmeta
-
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
-
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := doha
 PRODUCT_NAME := omni_doha
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Moto G8 Plus
 PRODUCT_MANUFACTURER := motorola
+
+# Inherit device specific product configuration
+$(call inherit-product, device/motorola/doha/device.mk)
