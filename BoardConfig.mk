@@ -139,29 +139,29 @@ TARGET_KERNEL_SOURCE := kernel/motorola/trinket
 TARGET_KERNEL_CONFIG := doha_defconfig
 
 # Team Win Recovery Configuration
+RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_USES_LOGD := true
-
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_EXTRA_LANGUAGES := true
-TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_EXCLUDE_TWRPAPP := true
-
-RECOVERY_SDCARD_ON_DATA := true
-
-TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_USE_TOOLBOX := true
+TWRP_INCLUDE_LOGCAT := true
+
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXCLUDE_TWRPAPP := true
+TW_EXTRA_LANGUAGES := true
 
 TW_INCLUDES_NTFS_3G := true
 TW_NEW_ION_HEAP := true
 TW_NO_SCREEN_TIMEOUT := true
 TW_SCREEN_BLANK_ON_BOOT := true
+
 TW_THEME := portrait_hdpi
-
-TW_USE_TOOLBOX := true
-TW_Y_OFFSET := 80
 TW_H_OFFSET := -80
+TW_Y_OFFSET := 80
 
-
+# TWRP Installer
+RECOVERY_INSTALLER_PATH := bootable/recovery/installer
+USE_RECOVERY_INSTALLER := true
