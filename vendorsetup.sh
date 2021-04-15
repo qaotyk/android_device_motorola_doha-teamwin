@@ -15,8 +15,9 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_doha-userdebug
-add_lunch_combo omni_doha-eng
+lunch omni_doha-eng
 
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
+
+mka recoveryimage -j$(nproc --all)
