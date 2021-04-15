@@ -87,6 +87,9 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
+# Recovery Wipe
+TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/root/recovery.wipe
+
 # Symbolic Simlinks
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist
