@@ -94,6 +94,17 @@ TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/root/recovery.wipe
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist
 
+# System props override
+TW_OVERRIDE_SYSTEM_PROPS := \
+    ro.build.product \
+    ro.build.fingerprint=ro.system.build.fingerprint \
+    ro.build.version.incremental \
+    ro.product.device=ro.product.system.device \
+    ro.product.model=ro.product.system.model \
+    ro.product.name=ro.product.system.name \
+    ro.build.version.release \
+    ro.build.version.security_patch
+
 # Kernel
 BOARD_KERNEL_CMDLINE := \
 	console=ttyMSM0,115200,n8 \
