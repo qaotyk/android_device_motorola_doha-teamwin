@@ -57,3 +57,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libgptutils.trinket \
     libgptutils.trinket.recovery
+
+# Decryption Qualcomm Technologies™ Common
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe \
+    tzdata_twrp
+
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu
+
+# Properties for decryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=trinket \
+    ro.hardware.gatekeeper=trinket \
+    ro.hardware.bootctrl=trinket \
+    ro.build.system_root_image=true
