@@ -15,11 +15,16 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_doha.mk
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl-wrapper.recovery \
+    android.hardware.boot@1.0-impl-wrapper \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.trinket \
+    bootctrl.trinket.recovery
 
-COMMON_LUNCH_CHOICES := \
-    omni_doha-eng \
-    omni_doha-userdebug \
-    omni_doha-user
-
+PRODUCT_PACKAGES += \
+    libgptutils.trinket \
+    libgptutils.trinket.recovery

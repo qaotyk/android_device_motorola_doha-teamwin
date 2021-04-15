@@ -15,10 +15,10 @@
 # limitations under the License.
 #
 
+ifneq ($(filter doha, $(TARGET_DEVICE)),)
+
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE), doha)
-
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
 endif

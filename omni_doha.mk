@@ -44,20 +44,6 @@ PRODUCT_PACKAGES += \
     update_verifier \
     update_engine_sideload
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.trinket
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.trinket \
-    libcutils \
-    libgptutils \
-    libz
-
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := doha
 PRODUCT_NAME := omni_doha
