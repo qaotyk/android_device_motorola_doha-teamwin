@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2020 - 2021 Doritos™ Motorola | Developers
-# Copyright (C) 2019 - 2021 Team Win Recovery Project
+# Copyright (C) 2016 - 2021 LineageOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,14 +15,9 @@
 # limitations under the License.
 #
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-    
-# Inherit AOSP common base configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+LOCAL_PATH := device/motorola/doha
 
-# A/B
+# A/B OTA Updater
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
@@ -40,9 +35,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
+    cppreopts.sh \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -73,3 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gatekeeper=trinket \
     ro.hardware.bootctrl=trinket \
     ro.build.system_root_image=true
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
