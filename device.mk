@@ -42,20 +42,6 @@ PRODUCT_PACKAGES += \
 
 TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    android.hardware.boot@1.0-impl-wrapper.recovery \
-    android.hardware.boot@1.0-impl-wrapper \
-    android.hardware.boot@1.0-impl.recovery \
-    bootctrl.trinket \
-    bootctrl.trinket.recovery
-
-PRODUCT_PACKAGES += \
-    libgptutils.trinket \
-    libgptutils.trinket.recovery
-
 # Decryption Qualcomm Technologies™ Common
 PRODUCT_PACKAGES += \
     qcom_decrypt \
@@ -69,7 +55,6 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore=trinket \
     ro.hardware.gatekeeper=trinket \
-    ro.hardware.bootctrl=trinket \
     ro.build.system_root_image=true
 
 # Soong namespaces
