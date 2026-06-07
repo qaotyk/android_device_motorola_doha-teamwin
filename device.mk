@@ -17,6 +17,9 @@
 
 LOCAL_PATH := device/motorola/doha
 
+# Inherit common
+-include device/motorola/sm6125-common/common.mk
+
 # A/B OTA Updater
 AB_OTA_UPDATER := true
 

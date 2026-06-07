@@ -16,10 +16,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_doha.mk
-
-COMMON_LUNCH_CHOICES := \
-    omni_doha-eng \
-    omni_doha-userdebug \
-    omni_doha-user
-
+    $(LOCAL_DIR)/twrp_doha.mk

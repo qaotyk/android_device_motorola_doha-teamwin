@@ -17,6 +17,9 @@
 
 DEVICE_PATH := device/motorola/doha
 
+# Inherit common
+-include device/motorola/sm6125-common/BoardConfigCommon.mk)
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
