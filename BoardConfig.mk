@@ -53,9 +53,6 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
 BOARD_SUPPRESS_SECURE_ERASE := true
 
-# GPT Utils
-BOARD_PROVIDES_GPTUTILS := true
-
 # Kernel - cmd_line
 BOARD_KERNEL_CMDLINE := \
 	console=ttyMSM0,115200,n8 \
