@@ -20,47 +20,23 @@ DEVICE_PATH := device/motorola/doha
 # Inherit common
 -include device/motorola/sm6125-common/BoardConfigCommon.mk
 
-# Platform
-TARGET_USES_64_BIT_BINDER := true
-TARGET_SUPPORTS_64_BIT_APPS := true
-QCOM_BOARD_PLATFORMS += trinket
-TARGET_USES_UEFI := true
-BUILD_BROKEN_DUP_RULES := true
-
-# Kernel - Instructions
-TARGET_KERNEL_VERSION := 4.14
-
+# Kernel - Prebuilt
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-
-BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 
-TARGET_KERNEL_CLANG_COMPILE := true
-
-ifeq ($(strip $(TARGET_PREBUILT_KERNEL)),)
-TARGET_KERNEL_SOURCE := kernel/motorola/sm6125
-TARGET_KERNEL_CONFIG := doha_defconfig
-endif
-
 # Kernel - Mkbootimg_args
 BOARD_MKBOOTIMG_ARGS += \
-	--pagesize $(BOARD_KERNEL_PAGESIZE) \
-	--base $(BOARD_KERNEL_BASE) \
 	--second_offset $(BOARD_KERNEL_SECOND_OFFSET) \
 	--dtb_offset $(BOARD_DTB_OFFSET) \
 	--dtb $(TARGET_PREBUILT_DTB)
 
-# Kernel - Size
+# Kernel - Offsets
 BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
 BOARD_DTB_OFFSET := 0x01f00000
-BOARD_DTBO_OFFSET := 0x01246000
 
 # Partitions - Rules
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 TARGET_USES_MKE2FS := true
@@ -75,18 +51,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 53359918592
 BOARD_VBMETA_PARTITION_SIZE := 65536
 BOARD_VENDORIMAGE_PARTITION_SIZE := 620756992
 
-# Partition - Types
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Recovery Wipe
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/root/recovery.wipe
-
-# Symbolic Simlinks
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist
 
 # Team Win Recovery Configuration
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
