@@ -20,46 +20,13 @@ LOCAL_PATH := device/motorola/doha
 # Inherit common
 -include device/motorola/sm6125-common/common.mk
 
-# A/B OTA Updater
-AB_OTA_UPDATER := true
-
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    system \
-    vendor \
-    vbmeta
-
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
-
-TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
-
-# Decryption Qualcomm Technologies™ Common
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe \
-    tzdata_twrp
-
-PRODUCT_HOST_PACKAGES += \
-    libandroidicu
+    cppreopts.sh
 
 # Properties for decryption
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.keystore=trinket \
-    ro.hardware.gatekeeper=trinket \
     ro.build.system_root_image=true
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH)
