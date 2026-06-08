@@ -53,9 +53,6 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 620756992
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
-# Recovery Wipe
-TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/root/recovery.wipe
-
 # Team Win Recovery Configuration
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_EXTRA_LANGUAGES := true
